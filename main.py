@@ -61,6 +61,8 @@ if st.button("🎯 Generate New Question"):
     st.session_state.graph_state["difficulty"] = selected_difficulty
     st.session_state.graph_state["topic"] = selected_topic
     st.session_state.graph_state = question_generator_node(st.session_state.graph_state)
+    # 🧹 Reset answer input
+    st.session_state["user_answer_input"] = ""
 
 if "current_question" not in st.session_state.graph_state:
     st.info("👋 Select a topic and difficulty, then click **Generate New Question** to begin.")
@@ -76,7 +78,7 @@ st.markdown(f"**📘 Topic:** `{question_topic}`")
 emoji = "🏆" if isinstance(points, int) and points >= 20 else "🎯" if isinstance(points, int) and points >= 12 else "💡"
 st.markdown(f"<div style='font-size:20px; margin-top:8px; color:#006400;'><b>{emoji} {points} points</b></div>", unsafe_allow_html=True)
 
-user_answer = st.text_area("✍️ Enter your answer here:")
+user_answer = st.text_area("✍️ Enter your answer here:", key="user_answer_input")
 
 col1, col2 = st.columns(2)
 submit_answer = col1.button("✅ Submit Answer")
@@ -115,5 +117,6 @@ if get_hint:
 # Footer
 st.markdown("---")
 st.subheader("About This App")
+st.markdown("Github Repo: [https://github.com/Ajith-s/math-tutor](https://github.com/Ajith-s/math-tutor)")
 st.markdown("This app is developed by Ajith Sharma for educational purposes. It uses OpenAI's GPT-4 model to provide personalized Math tutoring.")
 st.markdown("Please provide feedback to help improve it! Open an issue on the GitHub repository.")
