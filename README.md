@@ -20,6 +20,11 @@ Streamlit link: https://ai-math-tutor.streamlit.app/
 	•	Python (3.10+ recommended)
 ⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻
 
+## Application Workflow
+<img width="695" alt="image" src="https://github.com/user-attachments/assets/421060a6-cbb6-4ba5-9e84-6843dab5f825" />
+
+⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻
+
 ## Installation
 ``` bash
 # Clone the repository
