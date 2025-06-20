@@ -3,16 +3,19 @@ from langchain.prompts import PromptTemplate
 from langgraph.graph import StateGraph
 from typing import TypedDict
 from dotenv import load_dotenv
-
+import streamlit as st
 import os
 
 
 # Load environment variables
 load_dotenv()
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+openai_api_key = st.secrets.get("OPENAI_API_KEY")
+if not openai_api_key:
+    st.error("OpenAI API key is not set. Please set the OPENAI_API_KEY environment variable.")
+    st.stop()
 
 
-if not OPENAI_API_KEY:
+if not openai_api_key:
     raise ValueError("OPENAI_API_KEY environment variable is not set.")
 
 # Define the LLM
