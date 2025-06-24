@@ -58,6 +58,7 @@ selected_difficulty = st.selectbox("Choose your starting difficulty level:", ["E
 # Generate question
 if st.button("🎯 Generate New Question"):
     st.session_state.graph_state.pop("solution", None)
+    st.session_state.graph_state["grade"] = selected_grade
     st.session_state.graph_state["difficulty"] = selected_difficulty
     st.session_state.graph_state["topic"] = selected_topic
     st.session_state.graph_state = question_generator_node(st.session_state.graph_state)
